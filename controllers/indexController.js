@@ -1,11 +1,11 @@
-const nome = "Zeca"
+const pizzas = require('../database/Pizzas.json')
 
 const indexController = {
   index: (req, res)=>{
-      return res.render('index');
+      return res.render('index', {pizzas});
   },
   pizza: (req, res)=>{
-    return res.render('pizza', {pizzas, nome} )
+    return res.render('pizza', )
   }
 }
 

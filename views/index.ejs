@@ -7,102 +7,22 @@
 	<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body> 
+	<h1><%= pizzas[0].nome %></h1>
 	<form>
 		<input type="text" name="busca" placeholder="Qual pizza você procura?" autocomplete="off">
 		<button type="submit">Buscar</button>
 	</form>
 	<main>
-		<article>
-			<img src="./img/calabresa.jpg" alt="Calabresa">
-			<button>+ Add</button>
-			<div>Calabresa</div>
-			<span>R$ 38,50</span>
-		</article>
-		<article>
-			<img src="./img/pepperoni.jpg" alt="Pepperoni">
-			<button>+ Add</button>
-			<div>Pepperoni</div>
-			<span>R$ 38,50</span>
-		</article>
-		<article>
-			<img src="./img/fracatu.jpg" alt="Fracatu">
-			<button>+ Add</button>
-			<div>Fracatu</div>
-			<span>R$ 38,50</span>
-		</article>
-		<article>
-			<img src="./img/marguerita.jpg" alt="Marguerita">
-			<button>+ Add</button>
-			<div>Marguerita</div>
-			<span>R$ 38,50</span>
-		</article>
-		<article>
-			<img src="./img/quatroqueijos.jpg" alt="Quatro Queijos">
-			<button>+ Add</button>
-			<div>Quatro Queijos</div>
-			<span>R$ 38,50</span>
-		</article>
-		<article>
-			<img src="./img/calabresa.jpg" alt="Calabresa">
-			<button>+ Add</button>
-			<div>Calabresa</div>
-			<span>R$ 38,50</span>
-		</article>
-		<article>
-			<img src="./img/pepperoni.jpg" alt="Pepperoni">
-			<button>+ Add</button>
-			<div>Pepperoni</div>
-			<span>R$ 38,50</span>
-		</article>
-		<article>
-			<img src="./img/fracatu.jpg" alt="Fracatu">
-			<button>+ Add</button>
-			<div>Fracatu</div>
-			<span>R$ 38,50</span>
-		</article>
-		<article>
-			<img src="./img/marguerita.jpg" alt="Marguerita">
-			<button>+ Add</button>
-			<div>Marguerita</div>
-			<span>R$ 38,50</span>
-		</article>
-		<article>
-			<img src="./img/quatroqueijos.jpg" alt="Quatro Queijos">
-			<button>+ Add</button>
-			<div>Quatro Queijos</div>
-			<span>R$ 38,50</span>
-		</article>
-		<article>
-			<img src="./img/calabresa.jpg" alt="Calabresa">
-			<button>+ Add</button>
-			<div>Calabresa</div>
-			<span>R$ 38,50</span>
-		</article>
-		<article>
-			<img src="./img/pepperoni.jpg" alt="Pepperoni">
-			<button>+ Add</button>
-			<div>Pepperoni</div>
-			<span>R$ 38,50</span>
-		</article>
-		<article>
-			<img src="./img/fracatu.jpg" alt="Fracatu">
-			<button>+ Add</button>
-			<div>Fracatu</div>
-			<span>R$ 38,50</span>
-		</article>
-		<article>
-			<img src="./img/marguerita.jpg" alt="Marguerita">
-			<button>+ Add</button>
-			<div>Marguerita</div>
-			<span>R$ 38,50</span>
-		</article>
-		<article>
-			<img src="./img/quatroqueijos.jpg" alt="Quatro Queijos">
-			<button>+ Add</button>
-			<div>Quatro Queijos</div>
-			<span>R$ 38,50</span>
-		</article>
+		<% for (let pizzaSingular of pizzas) {%>
+			<article>
+				<img src=<%= pizzaSingular.img %> alt="Pizza de <%= pizzaSingular.nome %>">
+				<button>+ Add</button>
+				<div><%= pizzaSingular.nome %></div>
+				<span><%=pizzaSingular.preco.toLocaleString('pt-br', { minimumFractionDigits: 2 , style: 'currency', currency: 'BRL' }) %></span>
+			</article>				
+		<% } %> 
+
 	</main>
 </body>
 </html>
