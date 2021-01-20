@@ -7,20 +7,22 @@
 	<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body> 
+	<h1><%= pizzas[0].nome %></h1>
 	<form>
 		<input type="text" name="busca" placeholder="Qual pizza você procura?" autocomplete="off">
 		<button type="submit">Buscar</button>
 	</form>
 	<main>
-		<% for( pizza of pizzas) { %>
-		<article>
-			<img src="<%= pizza.img %>" alt="Calabresa">
-			<button>+ Add</button>
-			<div><%= pizza.nome %></div>
-			<span>R$ <%= pizza.preco %></span>
-		</article>
-		<% } %>	
+		<% for (let pizzaSingular of pizzas) {%>
+			<article>
+				<img src=<%= pizzaSingular.img %> alt="Pizza de <%= pizzaSingular.nome %>">
+				<button>+ Add</button>
+				<div><%= pizzaSingular.nome %></div>
+				<span><%=pizzaSingular.preco.toLocaleString('pt-br', { minimumFractionDigits: 2 , style: 'currency', currency: 'BRL' }) %></span>
+			</article>				
+		<% } %> 
+
 	</main>
 </body>
 </html>
