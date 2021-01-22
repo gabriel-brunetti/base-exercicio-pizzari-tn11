@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pizza</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Pizzaria Fantastica</title>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/pizza.css">
 </head>
 <body>
-  <h1>Confira nossos sabores de pizza</h1>
-  <p>As melhores pizzas da região</p>
-
-  <!-- TAGS DO EJS -->
-
-  <!-- percorrendo um array com o EJS -->
-  <% for( pizza of pizzas) { %>
-    <p> <%= pizza.nome %> </p>
-    <p> <%= pizza.preco %> </p>
-    <img src=<%= pizza.img %> alt="">  
-  <% } %>
-
+    <header>
+        <a href="/"><button>&larr; Voltar Página Inicial</button></a>
+    </header>
+	<section>
+		<h1><%= pizza.nome %></h1>
+		<h2>R$ <%= pizza.preco %></h2>
+		<img src="/img/calabresa.jpg">
+		<div>Ingredientes: <%= pizza.ingredientes.join(', ') %> </div>
+    </section>
 </body>
 </html>

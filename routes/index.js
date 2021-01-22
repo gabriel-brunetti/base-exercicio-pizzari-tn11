@@ -7,6 +7,6 @@ router.get('/', indexController.index );
 router.get('/cadastrar', indexController.create);
 router.post('/cadastrar', indexController.store);
 
-router.get('/pizza', indexController.pizza );
+router.get('/pizza/:id', indexController.pizza);
 
 module.exports = router;

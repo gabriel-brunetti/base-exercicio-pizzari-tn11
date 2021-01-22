@@ -17,9 +17,9 @@
 		<% for (let pizzaSingular of pizzas) {%>
 			<article>
 				<img src=<%= pizzaSingular.img %> alt="Pizza de <%= pizzaSingular.nome %>">
-				<button>+ Add</button>
+				<a href="/pizza/<%= pizzaSingular.id %>"><button>+ detalhes</button></a>
 				<div><%= pizzaSingular.nome %></div>
-				<span><%=pizzaSingular.preco.toLocaleString('pt-br', { minimumFractionDigits: 2 , style: 'currency', currency: 'BRL' }) %></span>
+				<span><%=pizzaSingular.preco %></span>
 			</article>				
 		<% } %> 
 
