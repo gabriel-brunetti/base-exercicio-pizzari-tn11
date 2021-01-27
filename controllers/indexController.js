@@ -17,6 +17,7 @@ const indexController = {
     return res.render('cadastroPizza')
   },
   store: (req, res)=>{
+
     let {nome, ingredientes, preco} = req.body
 
     //id
@@ -25,12 +26,14 @@ const indexController = {
     //ingrediente
     ingredientes = ingredientes.split(',')
 
+    let img = "/img/"+req.files[0].originalname
+
     pizzas.push({
       id: id,
       nome: nome,
       ingredientes: ingredientes,
       preco: preco,
-      img: null, 
+      img: img, 
       destaque: false
     })
 
