@@ -15,15 +15,11 @@ var storage = multer.diskStorage({
    
 var upload = multer({ storage: storage })
 
-/* GET home page. */
 router.get('/', indexController.index );
 router.get('/cadastrar', indexController.create);
 router.post('/cadastrar', upload.any(), indexController.store);
-
+router.get('/editar/:id', indexController.edit);
+router.put('/editar/:id', upload.any(), indexController.update);
 router.get('/pizza/:id', indexController.pizza);
-
-
-// Salve o nome da imagem no arquivo json a cada novo cadastro.
-// Teste se imagens são salvas.
 
 module.exports = router;

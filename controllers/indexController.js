@@ -42,6 +42,25 @@ const indexController = {
     fs.writeFileSync(caminho, pizzaJson)
 
     res.redirect('/')
+  },
+  edit: (req, res) => {
+    let { id } = req.params;
+    let pizza = pizzas.find( pizza => id == pizza.id)
+
+    res.render('editar',{ pizza });
+  },
+  update: (req, res) => {
+    let { id } = req.params;
+    let pizza = pizzas.find( pizza => id == pizza.id)
+
+    let { nome, ingredientes, preco} = req.body;
+    pizza.nome = nome;
+    pizza.ingredientes = ingredientes.split(',');
+    pizza.preco = preco;
+
+    fs.writeFileSync(path.join('database', 'Pizzas.json'), JSON.stringify(pizzas))
+
+    res.redirect(`/pizza/${id}`);
   }
 }
 
